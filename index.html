@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom Boutique - Modern Fashion for Her</title>
+    <meta name="description" content="Discover elegant, modern fashion pieces in soft pastels and timeless designs" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1>Bloom Boutique</h1>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#shop" class="nav-link">Shop</a>
+                <!-- <a href="#about" class="nav-link">About</a> -->
+                <a href="#contact" class="nav-link">Contact</a>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be populated by JavaScript -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: $<span id="cart-total">0.00</span></strong>
+            </div>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Embrace Your Feminine Grace</h1>
+            <p class="hero-subtitle">Discover timeless pieces that celebrate your unique style with soft elegance and modern sophistication</p>
+            <button class="cta-button" onclick="scrollToSection('shop')">Shop Collection</button>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=800&h=600&fit=crop&crop=center" alt="Fashion model in elegant outfit" />
+        </div>
+    </section>
+
+    <!-- Shop by Category -->
+    <section class="categories" id="shop">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card" data-category="dresses">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=500&fit=crop" alt="Dresses" />
+                    </div>
+                    <h3>Dresses</h3>
+                    <p>Flowing femininity</p>
+                </div>
+                <div class="category-card" data-category="tops">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1564859228273-274232fdb516?w=400&h=500&fit=crop" alt="Tops" />
+                    </div>
+                    <h3>Tops & Blouses</h3>
+                    <p>Effortless elegance</p>
+                </div>
+                <div class="category-card" data-category="bottoms">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=500&fit=crop" alt="Bottoms" />
+                    </div>
+                    <h3>Bottoms</h3>
+                    <p>Comfortable chic</p>
+                </div>
+                <div class="category-card" data-category="accessories">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=400&h=500&fit=crop" alt="Accessories" />
+                    </div>
+                    <h3>Accessories</h3>
+                    <p>Perfect finishing touches</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="products-carousel">
+                <button class="carousel-btn prev-btn" onclick="moveCarousel(-1)">‹</button>
+                <div class="products-container" id="products-container">
+                    <!-- Products will be populated by JavaScript -->
+                </div>
+                <button class="carousel-btn next-btn" onclick="moveCarousel(1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Limited Time Offers -->
+    <section class="limited-offers">
+        <div class="container">
+            <div class="offer-banner">
+                <h2>Limited Time: Spring Collection</h2>
+                <p>Get 25% off on all new arrivals this week only</p>
+                <button class="offer-btn">Shop Sale</button>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span id="days">03</span>
+                        <label>Days</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">12</span>
+                        <label>Hours</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">45</span>
+                        <label>Minutes</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title">Behind the Scenes</h2>
+            <div class="video-container">
+                <video controls poster="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=450&fit=crop">
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Design Upload -->
+    <section class="custom-design">
+        <div class="container">
+            <h2 class="section-title">Custom Design Service</h2>
+            <div class="upload-section">
+                <div class="upload-content">
+                    <h3>Share Your Vision</h3>
+                    <p>Upload inspiration images or sketches for custom pieces tailored just for you</p>
+                    <div class="file-upload">
+                        <input type="file" id="design-upload" accept="image/*" multiple>
+                        <label for="design-upload" class="upload-btn">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            Choose Files
+                        </label>
+                        <p class="upload-text">Or drag and drop your files here</p>
+                    </div>
+                    <div class="uploaded-files" id="uploaded-files"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The quality is exceptional and the fit is perfect. I've never felt more confident in my clothes!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b647?w=80&h=80&fit=crop&crop=face" alt="Sarah M." />
+                        <div>
+                            <h4>Sarah M.</h4>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Beautiful, feminine pieces that transition perfectly from day to night. Absolutely love this brand!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="Emma L." />
+                        <div>
+                            <h4>Emma L.</h4>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The attention to detail and sustainable practices make this my go-to brand for special occasions."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=80&h=80&fit=crop&crop=face" alt="Lily K." />
+                        <div>
+                            <h4>Lily K.</h4>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed / Lookbook -->
+    <section class="lookbook">
+        <div class="container">
+            <h2 class="section-title">#BloomStyle</h2>
+            <p class="section-subtitle">See how our community styles their favorite pieces</p>
+            <div class="lookbook-grid">
+                <div class="lookbook-item">
+                    <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop" alt="Lookbook style 1" />
+                    <div class="lookbook-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+                <div class="lookbook-item">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&h=400&fit=crop" alt="Lookbook style 2" />
+                    <div class="lookbook-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+                <div class="lookbook-item">
+                    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&h=400&fit=crop" alt="Lookbook style 3" />
+                    <div class="lookbook-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+                <div class="lookbook-item">
+                    <img src="https://images.unsplash.com/photo-1524863479829-916d8e77f114?w=400&h=400&fit=crop" alt="Lookbook style 4" />
+                    <div class="lookbook-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+                <div class="lookbook-item">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&h=400&fit=crop" alt="Lookbook style 5" />
+                    <div class="lookbook-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+                <div class="lookbook-item">
+                    <img src="https://images.unsplash.com/photo-1492288991661-058aa541ff43?w=400&h=400&fit=crop" alt="Lookbook style 6" />
+                    <div class="lookbook-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay in Style</h2>
+                <p>Be the first to know about new collections, exclusive offers, and styling tips</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <div class="form-group">
+                        <input type="text" id="newsletter-name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="newsletter-email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="message" placeholder="Your message" required>
+                    </div>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Bloom Boutique</h3>
+                    <p>Celebrating feminine grace through timeless, elegant fashion pieces crafted with love and attention to detail.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#shop">Shop</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Care Instructions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Care</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Fashion Ave, Style City, SC 12345</p>
+                        <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> hello@bloomboutique.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Bloom Boutique. All rights reserved. Made with ♡</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
