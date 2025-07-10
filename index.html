@@ -15,6 +15,47 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
+    <script>
+        digitalData = digitalData || {}; // Initialize digitalData if it doesn't exist
+        digitalData = {
+            page: {
+                pageInfo: {
+                    pageName: "Bloom Boutique: Home", // Dynamic page name
+                    destinationURL: window.location.href,
+                    referrer: document.referrer,
+                    pageID: "homePage", // Unique ID for this page
+                    sysEnv: navigator.userAgent, // User agent for device/browser info
+                    server: window.location.hostname,
+                    pageType: "home", // Type of page (e.g., home, product, category, checkout)
+                    siteSection: "main", // Main site section
+                    siteSubsection: "",
+                    pageTitle: document.title,
+                    breadcrumbs: [] // Array to hold breadcrumbs (e.g., for category pages)
+                },
+                category: {
+                    primaryCategory: "Fashion",
+                    subCategory1: "Women's Fashion",
+                    subCategory2: "",
+                    pageType: "Homepage"
+                },
+                attributes: {
+                    templateName: "Homepage Template",
+                    // Add any other page-specific attributes
+                },
+             
+            cart: {
+                cartID: "",
+                price: {
+                    basePrice: 0.00,
+                    cartTotal: 0.00,
+                    currency: "USD"
+                },
+                item: [] 
+            },
+            event: [] 
+        };
+    </script>
+    <script src="https://assets.adobedtm.com/236ca7d75265/bdb57809cabf/launch-22b6265d5bff-development.min.js" async></script>
 </head>
 <body>
     <!-- Navigation -->
