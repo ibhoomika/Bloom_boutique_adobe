@@ -133,7 +133,8 @@ function createProductCard(product) {
             </button>
         </div>
     `;
-    
+    digitalData.product = product.name
+    digitalData.product_price = product.price.toFixed(2)
     return card;
 }
 
